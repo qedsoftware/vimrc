@@ -152,3 +152,37 @@ nnoremap <leader>a :Ack
 "opens a new vertical split and switches over to it
 nnoremap <leader>w <C-w>v<C-w>l
 
+"guifg=orange
+hi User1 guifg=#eea040 guibg=#222222 ctermfg=red ctermbg=DarkGray
+"guifg=red
+hi User2 guifg=#dd3333 guibg=#222200 ctermfg=darkred ctermbg=DarkGray
+"guifg=magenta
+hi User3 guifg=#ff66ff guibg=#222222 ctermfg=magenta ctermbg=DarkGray
+"guifg=green
+hi User4 guifg=#a0ee40 guibg=#222222 ctermfg=green ctermbg=DarkGray
+"guifg=yellow
+hi User5 guifg=#eeee40 guibg=#222222 ctermfg=yellow ctermbg=DarkGray
+
+"set statusline=
+"set statusline+=%1*  "switch to User1 highlight
+"set statusline+=%F   "full filename
+"set statusline+=%2*  "switch to User2 highlight
+"set statusline+=%y   "filetype
+"set statusline+=%3*  "switch to User3 highlight
+"set statusline+=%l   "line number
+"set statusline+=%*   "switch back to statusline highlight
+"set statusline+=%P   "percentage thru file
+"
+"
+set statusline +=%2*buf:%1*\ %n\ %*            "buffer number
+set statusline +=%2*type:%1*\ %y\ %*                 "file type
+set statusline +=%2*path:%1*\ %<%F%*            "full path
+set statusline +=%2*%m\ %*                "modified flag
+set statusline +=%2*%=line:\ %*
+set statusline +=%1*%l%*             "current line
+set statusline +=%1*/%L\ %*               "total lines
+set statusline +=%2*%=col:\ %*             "virtual column number
+set statusline +=%1*%v\ %*
+set statusline +=%2*%=char:\ %*          "character under cursor 
+set statusline +=%1*\0x%04B\ %*  
+
