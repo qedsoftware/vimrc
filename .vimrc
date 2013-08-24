@@ -1,11 +1,38 @@
+set nocompatible
+filetype off                   " required!
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+" My Bundles here:
+"
+" original repos on github
+Bundle 'tpope/vim-fugitive'
+Bundle 'msanders/snipmate.vim'
+Bundle 'tpope/vim-surround'
+Bundle 'hpoydar/vim-colors-ir-dark-gray'
+Bundle 'kien/ctrlp.vim'
+Bundle 'docunext/closetag.vim'
+"Bundle 'Lokaltog/powerline'
+
+" Github repos of the user 'vim-scripts'
+" => can omit the username part
+Bundle 'The-NERD-tree'
+Bundle 'taglist.vim'
+
+" non github repos
+" Bundle 'git://git.wincent.com/command-t.git'
+" ...
+
+filetype plugin indent on     " required!
+
 syntax on
-" Pathogen
-filetype off " Pathogen needs to run before plugin indent on
-call pathogen#incubate()
-call pathogen#helptags() " generate helptags for everything in 'runtimepath'
 
 "disable vi compatibility (emulation of old bugs)
-set nocompatible
 set ruler
 filetype on
 if has("gui_running")
@@ -21,8 +48,8 @@ set wildmode=longest,list,full "file completion
 set wildmenu
 set cul "highlight current line
 hi CursorLine term=none cterm=none ctermbg=none guibg=#771c1c
-set statusline=%t%h%m%r%=[%b\ 0x%02B]\ \ \ %l,%c%V\ %P
 set laststatus=2 "always show a status line
+"set statusline=%F%m%r%h%w\ (%{&ff}){%Y}\ [%l,%v][%p%%]
 set cmdheight=1 "make the command line 1 line high
 
 "following based on http://nvie.com/posts/how-i-boosted-my-vim/
@@ -34,7 +61,7 @@ set backspace=indent,eol,start
                   " allow backspacing over everything in insert mode
 set autoindent    " always set autoindenting on
 set copyindent    " copy the previous indentation on autoindenting
-set number        " always show line numbers
+"set number        " always show line numbers
 set shiftwidth=4  " number of spaces to use for autoindenting
 set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
 set showmatch     " set show matching parenthesis
@@ -60,6 +87,7 @@ filetype plugin indent on
 "set listchars=tab:▸\ ,eol:¬ "invisible chars shown in TM style
 
 autocmd filetype html,xml set listchars-=tab:>.
+autocmd FileType html let b:closetag_html_style=1
 
 "remaps : to ; for speed, avoiding usage of SHIFT
 nnoremap ; :
@@ -108,23 +136,19 @@ map <c-l> <c-w>l
 map <c-h> <c-w>h
 
 "http://stevelosh.com/blog/2010/09/coming-home-to-vim/
-set modelines=0 "prevent security exploit
+" set modelines=0 "prevent security exploit
 set ttyfast
 set relativenumber
-set undofile
+" set undofile
 let mapleader = ","
 
 nnoremap / /\v
-vnoremap / /\v
 nnoremap <leader><space> :noh<cr>
-nnoremap <tab> %
-vnoremap <tab> %
 
-set formatoptions=qrn1
-set colorcolumn=85
+set colorcolumn=85 "red line to remind us not to write long lines
 
+"ack
 nnoremap <leader>a :Ack
 "opens a new vertical split and switches over to it
 nnoremap <leader>w <C-w>v<C-w>l
-
 
