@@ -14,15 +14,26 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'msanders/snipmate.vim'
 Bundle 'tpope/vim-surround'
-Bundle 'hpoydar/vim-colors-ir-dark-gray'
 Bundle 'kien/ctrlp.vim'
 Bundle 'docunext/closetag.vim'
+Bundle 'teranex/jk-jumps.vim'
+"Bundle 'scrooloose/nerdcommenter'
+Bundle 'tomtom/tcomment_vim'
+Bundle 'rstacruz/sparkup'
 "Bundle 'Lokaltog/powerline'
+Bundle 'hpoydar/vim-colors-ir-dark-gray'
+Bundle 'promisedlandt/vim-colors-ir_black'
+Bundle 'tpope/vim-vividchalk'
+Bundle 'noahfrederick/vim-noctu'
 
 " Github repos of the user 'vim-scripts'
 " => can omit the username part
 Bundle 'The-NERD-tree'
 Bundle 'taglist.vim'
+Bundle 'Wombat'
+Bundle 'molokai'
+Bundle 'Mustang2'
+Bundle 'Solarized'
 
 " non github repos
 " Bundle 'git://git.wincent.com/command-t.git'
@@ -36,16 +47,16 @@ syntax on
 set ruler
 filetype on
 if has("gui_running")
-    colorscheme ir_dark_gray 
+    colorscheme ir_dark_gray
 else
-    colorscheme koehler
+    colorscheme vividchalk 
 endif
 set guifont=Bitstream\ Vera\ Sans\ Mono:h18
 set showcmd
 " set smartindent "use intelligent indentation based on C programming language
 set expandtab
-set wildmode=longest,list,full "file completion
 set wildmenu
+set wildmode=longest,list,full "file completion
 set cul "highlight current line
 hi CursorLine term=none cterm=none ctermbg=none guibg=#771c1c
 set laststatus=2 "always show a status line
@@ -146,6 +157,7 @@ nnoremap / /\v
 nnoremap <leader><space> :noh<cr>
 
 set colorcolumn=85 "red line to remind us not to write long lines
+highlight ColorColumn guibg=#121212 ctermbg=darkred
 
 "ack
 nnoremap <leader>a :Ack
@@ -177,7 +189,7 @@ hi User5 guifg=#eeee40 guibg=#222222 ctermfg=yellow ctermbg=DarkGray
 set statusline +=%2*buf:%1*\ %n\ %*            "buffer number
 set statusline +=%2*type:%1*\ %y\ %*                 "file type
 set statusline +=%2*path:%1*\ %<%F%*            "full path
-set statusline +=%2*%m\ %*                "modified flag
+set statusline +=%4*%m\ %*                "modified flag
 set statusline +=%2*%=line:\ %*
 set statusline +=%1*%l%*             "current line
 set statusline +=%1*/%L\ %*               "total lines
@@ -186,3 +198,17 @@ set statusline +=%1*%v\ %*
 set statusline +=%2*%=char:\ %*          "character under cursor 
 set statusline +=%1*\0x%04B\ %*  
 
+"http://vim.wikia.com/wiki/Change_statusline_color_to_show_insert_or_normal_mode
+" first, enable status line always
+set laststatus=2
+
+" http://vim-taglist.sourceforge.net/manual.html
+" toggle tlistopen and tlistclose
+nnoremap <silent> <F8> :TlistToggle<CR>
+
+
+set mouse=a
+
+
+"https://github.com/teranex/jk-jumps.vim
+let g:jk_jumps_minimum_lines = 7
