@@ -1,3 +1,5 @@
+".vimrc configuration, William Wu <william.wu@themathpath.com>
+
 set nocompatible
 filetype off                   " required!
 
@@ -203,12 +205,10 @@ set statusline +=%1*\0x%04B\ %*
 set laststatus=2
 
 " http://vim-taglist.sourceforge.net/manual.html
-" toggle tlistopen and tlistclose
+" toggle TListOpen and TListClose 
 nnoremap <silent> <F8> :TlistToggle<CR>
 
-
 set mouse=a
-
 
 "https://github.com/teranex/jk-jumps.vim
 let g:jk_jumps_minimum_lines = 7
