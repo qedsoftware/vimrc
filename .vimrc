@@ -32,6 +32,7 @@ Bundle 'noahfrederick/vim-noctu'
 " => can omit the username part
 Bundle 'The-NERD-tree'
 Bundle 'taglist.vim'
+Bundle 'jsbeautify'
 Bundle 'Wombat'
 Bundle 'molokai'
 Bundle 'Mustang2'
