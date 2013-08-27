@@ -213,3 +213,9 @@ set mouse=a
 
 "https://github.com/teranex/jk-jumps.vim
 let g:jk_jumps_minimum_lines = 7
+
+
+"http://stevelosh.com/blog/2010/09/coming-home-to-vim/
+"TextMate-style invisible characters
+set list
+set listchars=tab:▸\ ,eol:¬
