@@ -211,12 +211,10 @@ set laststatus=2
 " http://vim-taglist.sourceforge.net/manual.html
 " toggle TListOpen and TListClose 
 nnoremap <silent> <F8> :TlistToggle<CR>
-
 set mouse=a
 
 "https://github.com/teranex/jk-jumps.vim
 let g:jk_jumps_minimum_lines = 7
-
 
 "http://stevelosh.com/blog/2010/09/coming-home-to-vim/
 "TextMate-style invisible characters
@@ -229,5 +227,6 @@ let g:syntastic_enable_signs=1
 let g:syntastic_enable_highlighting=1
 let g:syntastic_python_checkers = ['pyflakes']
 
-"clipboard
+"yanks/cuts to unnamed register are directed to clipboard register,
+"enabling ctrl+v pasting for outside applications, without using "* register
 set clipboard=unnamed
