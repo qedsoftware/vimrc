@@ -17,9 +17,10 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'msanders/snipmate.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'kien/ctrlp.vim'
+"Bundle 'klen/python-mode'
 Bundle 'docunext/closetag.vim'
 Bundle 'teranex/jk-jumps.vim'
-"Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/syntastic'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'rstacruz/sparkup'
 "Bundle 'Lokaltog/powerline'
@@ -201,6 +202,8 @@ set statusline +=%1*%v\ %*
 set statusline +=%2*%=char:\ %*          "character under cursor 
 set statusline +=%1*\0x%04B\ %*  
 
+hi StatusLine ctermbg=white
+
 "http://vim.wikia.com/wiki/Change_statusline_color_to_show_insert_or_normal_mode
 " first, enable status line always
 set laststatus=2
@@ -219,3 +222,12 @@ let g:jk_jumps_minimum_lines = 7
 "TextMate-style invisible characters
 set list
 set listchars=tab:▸\ ,eol:¬
+
+"http://stackoverflow.com/questions/15457887/how-to-set-up-syntastic-for-vim
+let g:syntastic_check_on_open=1
+let g:syntastic_enable_signs=1
+let g:syntastic_enable_highlighting=1
+let g:syntastic_python_checkers = ['pyflakes']
+
+"clipboard
+set clipboard=unnamed
