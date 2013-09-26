@@ -28,6 +28,7 @@ Bundle 'hpoydar/vim-colors-ir-dark-gray'
 Bundle 'promisedlandt/vim-colors-ir_black'
 Bundle 'tpope/vim-vividchalk'
 Bundle 'noahfrederick/vim-noctu'
+"Bundle 'Valloric/YouCompleteMe'
 
 " Github repos of the user 'vim-scripts'
 " => can omit the username part
@@ -51,9 +52,11 @@ syntax on
 set ruler
 filetype on
 if has("gui_running")
-    colorscheme ir_dark_gray
+    "colorscheme ir_dark_gray
+    colorscheme koehler
 else
-    colorscheme vividchalk 
+    "colorscheme vividchalk 
+    colorscheme koehler 
 endif
 set guifont=Bitstream\ Vera\ Sans\ Mono:h18
 set showcmd
@@ -230,3 +233,5 @@ let g:syntastic_python_checkers = ['pyflakes']
 "yanks/cuts to unnamed register are directed to clipboard register,
 "enabling ctrl+v pasting for outside applications, without using "* register
 set clipboard=unnamed
+
+set paste

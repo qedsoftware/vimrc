@@ -4,6 +4,11 @@ Yet another .vimrc. - W.Wu
 
 INSTALLATION
 ===============
+Requirements: vim, ctags
+
+    sudo apt-get install vim
+    sudo apt-get install exuberant-ctags
+
 How to reproduce this Vundle-based vi configuration on a new machine:
 
     [ -d ~/.vim ]  && mv ~/.vim ~/.vim.bak
