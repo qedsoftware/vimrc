@@ -29,6 +29,7 @@ Bundle 'promisedlandt/vim-colors-ir_black'
 Bundle 'tpope/vim-vividchalk'
 Bundle 'noahfrederick/vim-noctu'
 "Bundle 'Valloric/YouCompleteMe'
+Bundle 'sandeepcr529/Buffet.vim'
 
 " Github repos of the user 'vim-scripts'
 " => can omit the username part
@@ -138,8 +139,6 @@ autocmd BufNewFile,BufRead *.json set ft=javascript
 " crontab editing
 set backupskip=/tmp/*,/private/tmp/*
 
-" Give a shortcut key to NERD Tree
-map <F2> :NERDTreeToggle<CR>
 
 " http://items.sjbach.com/319/configuring-vim-right
 set scrolloff=3
@@ -211,6 +210,10 @@ hi StatusLine ctermbg=white
 " first, enable status line always
 set laststatus=2
 
+" Shortcut key to NERD Tree
+map <F2> :NERDTreeToggle<CR>
+" Shortcut key for Buffet.vim bufferlist; not a toggle, use ESC to escape
+map <F3> :Bufferlist<CR>
 " http://vim-taglist.sourceforge.net/manual.html
 " toggle TListOpen and TListClose 
 nnoremap <silent> <F8> :TlistToggle<CR>
