@@ -238,3 +238,7 @@ let g:syntastic_python_checkers = ['pyflakes']
 set clipboard=unnamed
 
 set paste
+
+"kill this useless 'thanks for flying vim' message 
+let &titleold=getcwd()
+
