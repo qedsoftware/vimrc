@@ -1,7 +1,7 @@
 ".vimrc configuration, William Wu <william.wu@themathpath.com>
 
 set nocompatible
-filetype off                   " required!
+filetype off                   " required for vundle; turn on later
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -40,18 +40,17 @@ Bundle 'Wombat'
 Bundle 'molokai'
 Bundle 'Mustang2'
 Bundle 'Solarized'
+Bundle 'indentpython.vim'
 
 " non github repos
 " Bundle 'git://git.wincent.com/command-t.git'
 " ...
 
-filetype plugin indent on     " required!
-
+filetype plugin indent on     " reactivate filetype after vundle
 syntax on
 
 "disable vi compatibility (emulation of old bugs)
 set ruler
-filetype on
 if has("gui_running")
     "colorscheme ir_dark_gray
     colorscheme koehler
@@ -241,4 +240,3 @@ set paste
 
 "kill this useless 'thanks for flying vim' message 
 let &titleold=getcwd()
-
