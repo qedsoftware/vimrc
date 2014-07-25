@@ -231,6 +231,8 @@ let g:syntastic_check_on_open=1
 let g:syntastic_enable_signs=1
 let g:syntastic_enable_highlighting=1
 let g:syntastic_python_checkers = ['pyflakes']
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 
 "yanks/cuts to unnamed register are directed to clipboard register,
 "enabling ctrl+v pasting for outside applications, without using "* register
