@@ -153,6 +153,7 @@ map <c-h> <c-w>h
 " set modelines=0 "prevent security exploit
 set ttyfast
 set relativenumber
+set number
 " set undofile
 let mapleader = ","
 
