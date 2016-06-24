@@ -1,7 +1,7 @@
 ".vimrc configuration, William Wu <william.wu@themathpath.com>
 
 set nocompatible
-filetype off                   " required!
+filetype off                   " required for vundle; turn on later
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -17,9 +17,10 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'msanders/snipmate.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'kien/ctrlp.vim'
+"Bundle 'klen/python-mode'
 Bundle 'docunext/closetag.vim'
 Bundle 'teranex/jk-jumps.vim'
-"Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/syntastic'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'rstacruz/sparkup'
 "Bundle 'Lokaltog/powerline'
@@ -27,6 +28,8 @@ Bundle 'hpoydar/vim-colors-ir-dark-gray'
 Bundle 'promisedlandt/vim-colors-ir_black'
 Bundle 'tpope/vim-vividchalk'
 Bundle 'noahfrederick/vim-noctu'
+"Bundle 'Valloric/YouCompleteMe'
+Bundle 'sandeepcr529/Buffet.vim'
 
 " Github repos of the user 'vim-scripts'
 " => can omit the username part
@@ -37,22 +40,23 @@ Bundle 'Wombat'
 Bundle 'molokai'
 Bundle 'Mustang2'
 Bundle 'Solarized'
+Bundle 'indentpython.vim'
 
 " non github repos
 " Bundle 'git://git.wincent.com/command-t.git'
 " ...
 
-filetype plugin indent on     " required!
-
+filetype plugin indent on     " reactivate filetype after vundle
 syntax on
 
 "disable vi compatibility (emulation of old bugs)
 set ruler
-filetype on
 if has("gui_running")
-    colorscheme ir_dark_gray
+    "colorscheme ir_dark_gray
+    colorscheme koehler
 else
-    colorscheme vividchalk 
+    "colorscheme vividchalk 
+    colorscheme koehler 
 endif
 set guifont=Bitstream\ Vera\ Sans\ Mono:h18
 set showcmd
@@ -134,8 +138,6 @@ autocmd BufNewFile,BufRead *.json set ft=javascript
 " crontab editing
 set backupskip=/tmp/*,/private/tmp/*
 
-" Give a shortcut key to NERD Tree
-map <F2> :NERDTreeToggle<CR>
 
 " http://items.sjbach.com/319/configuring-vim-right
 set scrolloff=3
@@ -202,21 +204,42 @@ set statusline +=%1*%v\ %*
 set statusline +=%2*%=char:\ %*          "character under cursor 
 set statusline +=%1*\0x%04B\ %*  
 
+hi StatusLine ctermbg=white
+
 "http://vim.wikia.com/wiki/Change_statusline_color_to_show_insert_or_normal_mode
 " first, enable status line always
 set laststatus=2
 
+" Shortcut key to NERD Tree
+map <F2> :NERDTreeToggle<CR>
+" Shortcut key for Buffet.vim bufferlist; not a toggle, use ESC to escape
+map <F3> :Bufferlist<CR>
 " http://vim-taglist.sourceforge.net/manual.html
 " toggle TListOpen and TListClose 
 nnoremap <silent> <F8> :TlistToggle<CR>
-
 set mouse=a
 
 "https://github.com/teranex/jk-jumps.vim
 let g:jk_jumps_minimum_lines = 7
 
-
 "http://stevelosh.com/blog/2010/09/coming-home-to-vim/
 "TextMate-style invisible characters
 set list
 set listchars=tab:▸\ ,eol:¬
+
+"http://stackoverflow.com/questions/15457887/how-to-set-up-syntastic-for-vim
+let g:syntastic_check_on_open=1
+let g:syntastic_enable_signs=1
+let g:syntastic_enable_highlighting=1
+let g:syntastic_python_checkers = ['pyflakes']
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+
+"yanks/cuts to unnamed register are directed to clipboard register,
+"enabling ctrl+v pasting for outside applications, without using "* register
+set clipboard=unnamed
+
+set paste
+
+"kill this useless 'thanks for flying vim' message 
+let &titleold=getcwd()
