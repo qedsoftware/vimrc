@@ -238,6 +238,8 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 "yanks/cuts to unnamed register are directed to clipboard register,
 "enabling ctrl+v pasting for outside applications, without using "* register
 set clipboard=unnamed
+"multiple clipboards on linux
+set clipboard=unnamedplus
 
 set paste
 
