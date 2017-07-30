@@ -1,5 +1,3 @@
-".vimrc configuration, William Wu <william.wu@themathpath.com>
-
 set nocompatible
 filetype off                   " required for vundle; turn on later
 
@@ -255,3 +253,5 @@ set expandtab
 
 " "csv files"
 " filetype plugin on
+
+" QED | https://qed.ai
