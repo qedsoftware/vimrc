@@ -17,7 +17,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'msanders/snipmate.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'kien/ctrlp.vim'
-"Bundle 'klen/python-mode'
+Bundle 'klen/python-mode'
 Bundle 'docunext/closetag.vim'
 Bundle 'teranex/jk-jumps.vim'
 Bundle 'scrooloose/syntastic'
@@ -28,8 +28,8 @@ Bundle 'hpoydar/vim-colors-ir-dark-gray'
 Bundle 'promisedlandt/vim-colors-ir_black'
 Bundle 'tpope/vim-vividchalk'
 Bundle 'noahfrederick/vim-noctu'
-"Bundle 'Valloric/YouCompleteMe'
 Bundle 'sandeepcr529/Buffet.vim'
+
 
 " Github repos of the user 'vim-scripts'
 " => can omit the username part
@@ -41,6 +41,8 @@ Bundle 'molokai'
 Bundle 'Mustang2'
 Bundle 'Solarized'
 Bundle 'indentpython.vim'
+
+Bundle 'csv.vim'
 
 " non github repos
 " Bundle 'git://git.wincent.com/command-t.git'
@@ -58,7 +60,8 @@ else
     "colorscheme vividchalk 
     colorscheme koehler 
 endif
-set guifont=Bitstream\ Vera\ Sans\ Mono:h18
+" set guifont=Bitstream\ Vera\ Sans\ Mono:h20
+set guifont=Monaco:h20
 set showcmd
 " set smartindent "use intelligent indentation based on C programming language
 set expandtab
@@ -73,13 +76,13 @@ set cmdheight=1 "make the command line 1 line high
 "following based on http://nvie.com/posts/how-i-boosted-my-vim/
 set hidden "hides buffers rather than closing them
 
-set nowrap        " don't wrap lines
+set wrap        " don't wrap lines
 set tabstop=4     " a tab is four spaces
 set backspace=indent,eol,start
                   " allow backspacing over everything in insert mode
 set autoindent    " always set autoindenting on
 set copyindent    " copy the previous indentation on autoindenting
-"set number        " always show line numbers
+set number        " always show line numbers
 set shiftwidth=4  " number of spaces to use for autoindenting
 set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
 set showmatch     " set show matching parenthesis
@@ -236,9 +239,18 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 
 "yanks/cuts to unnamed register are directed to clipboard register,
 "enabling ctrl+v pasting for outside applications, without using "* register
-set clipboard=unnamed
-
-set paste
+set clipboard=unnamedplus,unnamed,autoselect
+set paste               " Paste from a windows or from vim
+set go+=a 
 
 "kill this useless 'thanks for flying vim' message 
 let &titleold=getcwd()
+
+"format JSON"
+com! FormatJSON %!python -m json.tool
+
+set expandtab
+
+
+" "csv files"
+" filetype plugin on
