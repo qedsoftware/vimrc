@@ -22,3 +22,4 @@ Now open vi, press ENTER to skip the error message, and execute
 
     :BundleInstall
 
+Note: You may need to delete line 106 on some machines.
